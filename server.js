@@ -12,6 +12,11 @@ const connectDB=require("./config/database")
 //dotenv config
 require("dotenv").config({path: "./config/config.env"})
 
+// Passport config
+require("./config/passport")(passport);
+
+//Connect To Database
+connectDB();
 
 
 //Server Running
