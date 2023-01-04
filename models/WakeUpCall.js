@@ -9,8 +9,8 @@ const WakeUpCallSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    bookingNumber:{
-        type: Number,
+    guestName:{
+        type: String,
         required:true
     },
     observations:{
