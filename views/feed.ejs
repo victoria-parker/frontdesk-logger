@@ -1,49 +1,105 @@
 <%- include('partials/header') -%>
-<main class="container">
-    <!-- issues -->
-    <table class="table table-hover">
-        <thead>
-            <th>room number</th>
-            <th>issue</th>
-            <th>date</th>
-            <th>add</th>
-        </thead>
-    </table>
+<main class="p-1">
 
-    <!-- wakeup calls -->
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>room number</th>
-                <th>date and time</th>
-                <th>observations</th>
-                <th>add</th>
-            </tr>
-        </thead>
-    </table>
+    
+    <section class="container-fluid border border-warning m-0">
+        <h2>Hello User</h2>
 
-    <!-- miselanious -->
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>notes</th>
-                <th>date</th>
-                <th>add</th>
-            </tr>
-        </thead>
-    </table>
+        <div class="row border border-success">
+        
+            <div class="col-lg-6 col-xl-8 border border-info">
+                <!-- issues -->
+                <table class="table table-hover table-bordered caption-top">
+                    <caption>Issues</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">room number</th>
+                        <th scope="col">issue</th>
+                        <th scope="col">date</th>
+                        <th scope="col">add</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>000</td>
+                        <td>no issue just test</td>
+                        <td>04/01/2023</td>
+                        <td>archive - modify - see more</td>
+                    </tr>
+                </tbody>
+                </table>
 
-    <!-- taxis -->
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>room number</th>
-                <th>pickup time</th>
-                <th>booking number</th>
-                <th>observations</th>
-                <th>add</th>
-            </tr>
-        </thead>
-    </table>
+                <!-- miscellaneous -->
+                <table class="table table-hover table-bordered caption-top">
+                    <caption>Miscellaneous</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">notes</th>
+                            <th scope="col">date</th>
+                            <th scope="col">add</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>no note just test</td>
+                            <td>04/01/2023</td>
+                            <td>archive - modify - see more</td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
+
+            <div class="col-lg-6 col-xl-4 border border-info table-responsive">
+                <!-- wakeup calls -->
+                <table class="table table-hover table-bordered caption-top">
+                    <caption>Wake up calls</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">room number</th>
+                            <th scope="col">wakeup time</th>
+                            <th scope="col">guest name</th>
+                            <th scope="col">notes</th>
+                            <th scope="col">add</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>000</td>
+                            <td>08:00am</td>
+                            <td>Mrs. Parker</td>
+                            <td>may need to call more than once</td>
+                            <td>archive - modify - see more</td>
+                        </tr>
+                    </tbody>
+                </table>
+                            
+                <!-- taxis -->
+                <table class="table table-hover table-bordered caption-top">
+                    <caption>Taxis</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">room number</th>
+                            <th scope="col">pickup time</th>
+                            <th scope="col">booking number</th>
+                            <th scope="col">notes</th>
+                            <th scope="col">add</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>000</td>
+                            <td>08:00am 05/01/2023</td>
+                            <td>1abc23</td>
+                            <td>no observation just test</td>
+                            <td>archive - modify - see more</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+        </div>
+
+    </section>
 </main>
+
 <%- include('partials/footer') -%>

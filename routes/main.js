@@ -6,4 +6,6 @@ const homeController=require("../controllers/home")
 //Main Routes
 router.get("/",homeController.getIndex)
 
+//temp feed
+router.get("/feed",homeController.getFeed)
 module.exports=router;
