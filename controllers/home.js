@@ -6,4 +6,7 @@ module.exports = {
     getFeed: (req, res) => {
       res.render("feed.ejs");
     },
+    getLogin: (req, res) => {
+      res.render("login.ejs");
+    },
   };
