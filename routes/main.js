@@ -7,6 +7,7 @@ const homeController=require("../controllers/home")
 //Main Routes
 router.get("/",homeController.getIndex)
 router.get("/login",authController.getLogin)
+router.post("/login",authController.postLogin)
 
 //temp feed
 router.get("/feed",homeController.getFeed)
