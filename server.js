@@ -25,6 +25,10 @@ app.set("view engine", "ejs");
 //Static Folder
 app.use(express.static("public"));
 
+//Body Parsing
+app.use(express.urlencoded({ extended: true })); 
+app.use(express.json());
+
 //Setup Routes
 app.use("/", mainRoutes)
 

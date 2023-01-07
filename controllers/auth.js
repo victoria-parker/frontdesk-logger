@@ -12,7 +12,7 @@ exports.getLogin = (req, res) => {
 }
 
 exports.postLogin = (req,res,next) => {
-    
+    console.log(req)
     const validationErrors = [];
     
     //check email
@@ -22,7 +22,7 @@ exports.postLogin = (req,res,next) => {
 
     //check password
     if(validator.isEmpty(req.body.password)){
-        validationErrors.push({mesg: "Password cannot be blank."})
+        validationErrors.push({msg: "Password cannot be blank."})
     }
 
     //if there are errors on logging redirect
