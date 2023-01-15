@@ -16,7 +16,7 @@ const UserSchema= new mongoose.Schema(
         admin: { 
             type: Boolean,
         },
-        organization: { 
+        company: { 
             type: String 
         },
         password: String,
