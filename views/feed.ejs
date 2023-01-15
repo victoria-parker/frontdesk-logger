@@ -36,6 +36,15 @@
                         <td>04/01/2023</td>
                         <td>archive - modify - see more</td>
                     </tr>
+
+                <% for(let i=0; i < issues.length; i++){ %>
+                    <tr>
+                        <td><%= issues[i].roomNumber %></td>
+                        <td><%= issues[i].text %></td>
+                        <td><%= issues[i].createdAt %></td>
+                        <td>archive - modify - see more</td>
+                    </tr>
+                <% } %>
                 </tbody>
                 </table>
 
