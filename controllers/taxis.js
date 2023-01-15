@@ -6,7 +6,7 @@ module.exports={
             Taxi.create(
                 {
                     roomNumber:req.body.roomNumber,
-                    observations: req.body.text,
+                    observations: req.body.observations,
                     bookingNumber:req.body.bookingNumber,
                     pickUpTime:req.body.pickUpTime,
                     company:req.user.company,
