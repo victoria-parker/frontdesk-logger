@@ -31,4 +31,4 @@ const IssueSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("Issue", PostSchema);
+module.exports = mongoose.model("Issue", IssueSchema);

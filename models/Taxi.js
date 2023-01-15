@@ -34,4 +34,4 @@ const TaxiSchema = new mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model("Taxi", PostSchema);
+module.exports = mongoose.model("Taxi", TaxiSchema);
