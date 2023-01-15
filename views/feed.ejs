@@ -22,7 +22,11 @@
                         <th scope="col">room number</th>
                         <th scope="col">issue</th>
                         <th scope="col">date</th>
-                        <th scope="col">add</th>
+                        <th scope="col">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addIssue">
+                                add
+                            </button>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,7 +46,11 @@
                         <tr>
                             <th scope="col">notes</th>
                             <th scope="col">date</th>
-                            <th scope="col">add</th>
+                            <th scope="col">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMiscellaneous">
+                                    add
+                                </button>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,7 +73,11 @@
                             <th scope="col">wakeup time</th>
                             <th scope="col">guest name</th>
                             <th scope="col">notes</th>
-                            <th scope="col">add</th>
+                            <th scope="col">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addWakeUpCall">
+                                    add
+                                </button>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,7 +100,11 @@
                             <th scope="col">pickup time</th>
                             <th scope="col">booking number</th>
                             <th scope="col">notes</th>
-                            <th scope="col">add</th>
+                            <th scope="col">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTaxi">
+                                    add
+                                </button>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -104,8 +120,44 @@
             </div>
         
         </div>
-
     </section>
+
+    <!-- add issue -->        
+<div class="modal fade" id="addIssue" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add and Issue</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                  <label for="roomNumber" class="col-form-label">Room number:</label>
+                  <input type="number" class="form-control" id="roomNumber" name="roomNumber">
+                </div>
+
+                <div class="mb-3">
+                    <label for="guestName" class="col-form-label">Guest Name:</label>
+                    <input type="text" class="form-control" id="guestName" name="guestName">
+                </div>
+
+                <div class="mb-3">
+                  <label for="text" class="col-form-label">Issue:</label>
+                  <textarea class="form-control" id="text" name="text"></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+
 </main>
 
 <%- include('partials/footer') -%>
