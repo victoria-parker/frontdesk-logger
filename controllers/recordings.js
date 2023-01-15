@@ -28,7 +28,7 @@ module.exports={
                     company:req.user.company,
                     user:req.user.id
                 })
-            console.log("Post has been added!");
+            console.log("Issue has been added!");
             res.redirect("/feed");
         }catch(err){
             console.error(err)

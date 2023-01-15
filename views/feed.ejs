@@ -41,7 +41,7 @@
                     <tr>
                         <td><%= issues[i].roomNumber %></td>
                         <td><%= issues[i].text %></td>
-                        <td><%= issues[i].createdAt %></td>
+                        <td><%= moment(issues[i].createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
                         <td>archive - modify - see more</td>
                     </tr>
                 <% } %>
@@ -140,7 +140,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form>
+            <form method="post" action="recordings/createIssue">
                 <div class="mb-3">
                   <label for="roomNumber" class="col-form-label">Room number:</label>
                   <input type="number" class="form-control" id="roomNumber" name="roomNumber">

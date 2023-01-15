@@ -4,3 +4,6 @@ const recordingsController=require("../controllers/recordings");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.post("/createIssue", recordingsController.createIssue)
+
+
+module.exports=router;
