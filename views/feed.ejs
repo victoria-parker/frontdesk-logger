@@ -1,13 +1,16 @@
 <%- include('partials/header') -%>
+
 <main class="p-1">
-    <div class="d-flex  justify-content-md-end pt-3">
+    <!-- navbar -->
+    <nav class="d-flex  justify-content-md-end pt-3">
             <% if(user.admin){ %>
                 <a href="/settings" class="text-decoration-none pe-3">settings</a>
                 <% } %>
                 <a href="/archive" class="text-decoration-none pe-3">archive</a>
                 <a href="/logout" class="text-decoration-none pe-3">logout</a>
-    </div>
+    </nav>
 
+    <!-- Feed -->
     <section class="container-fluid">
         <h2>Hello <%= user.firstName %></h2>
         
@@ -30,19 +33,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>000</td>
-                        <td>no issue just test</td>
-                        <td>04/01/2023</td>
-                        <td>archive - modify - see more</td>
-                    </tr>
 
                 <% for(let i=0; i < issues.length; i++){ %>
                     <tr>
                         <td><%= issues[i].roomNumber %></td>
                         <td><%= issues[i].text %></td>
                         <td><%= moment(issues[i].createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
-                        <td>archive - modify - see more</td>
+                        <td>
+                            <a href="/removeIssue" class="text-decoration-none link-danger">remove</a> - <a href="/modifyIssue" class="text-decoration-none link-warning">modify</a> - <a href="issues/<%= issues[i].id %>" class="text-decoration-none link-info">see more</a></td>
+                        </td>
                     </tr>
                 <% } %>
                 </tbody>
@@ -66,7 +65,9 @@
                         <tr>
                             <td>no note just test</td>
                             <td>04/01/2023</td>
-                            <td>archive - modify - see more</td>
+                            <td>
+                                <a href="/removeMiscellaneous" class="text-decoration-none link-danger">remove</a> - <a href="/modifyMiscellaneous" class="text-decoration-none link-warning">modify</a> - <a href="/miscellaneous/id" class="text-decoration-none link-info">see more</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table> 
@@ -95,7 +96,9 @@
                             <td>08:00am</td>
                             <td>Mrs. Parker</td>
                             <td>may need to call more than once</td>
-                            <td>archive - modify - see more</td>
+                            <td>
+                                <a href="/removeWakeUpCall" class="text-decoration-none link-danger">remove</a> - <a href="/modifyWakeUpCall" class="text-decoration-none link-warning">modify</a> - <a href="wakeupcall/<%= wakeupcalls[i].id %>" class="text-decoration-none link-info">see more</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -122,7 +125,9 @@
                             <td>08:00am 05/01/2023</td>
                             <td>1abc23</td>
                             <td>no observation just test</td>
-                            <td>archive - modify - see more</td>
+                            <td>
+                                <a href="/removeTaxi" class="text-decoration-none link-danger">remove</a> - <a href="/modifyTaxo" class="text-decoration-none link-warning">modify</a> - <a href="taxi/<%= taxis[i].id %>" class="text-decoration-none link-info">see more</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
