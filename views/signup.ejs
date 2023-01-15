@@ -1,8 +1,9 @@
 <%- include('partials/header') -%>
 
 <main>
-    <section class="container mt-5">
+    <section class="container mt-3">
         <h2>Create an account for you and your company</h2>
+        
         <form action="/signup" method="post" class="container">
             
             <div class="mb-3">        
@@ -29,6 +30,11 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" id="password" class="form-control">
             </div>
+
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" class="form-control">
+              </div>
 
             <div class="d-grid justify-content-md-end">
                 <button type="submit" class="btn btn-primary">Sign up</button>
