@@ -10,6 +10,8 @@ const logger=require("morgan")
 const connectDB=require("./config/database")
 const mainRoutes=require("./routes/main")
 const recordingsRoutes=require("./routes/recordings")
+const moment=require("moment")
+
 
 //dotenv config
 require("dotenv").config({path: "./config/config.env"})
@@ -25,6 +27,9 @@ connectDB();
 
 //Using EJS for views
 app.set("view engine", "ejs");
+
+//moment setup
+app.locals.moment = moment; 
 
 //Static Folder
 app.use(express.static("public"));
