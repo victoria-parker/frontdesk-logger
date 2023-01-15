@@ -1,25 +1,38 @@
 <%- include('partials/header') -%>
 
 <main>
-    <section>
-        <form action="/signup" method="post">
+    <section class="container mt-5">
+        <h2>Create an account for you and your company</h2>
+        <form action="/signup" method="post" class="container">
             
-            <label for="company">Company</label>
-            <input type="text" name="company" id="company">
+            <div class="mb-3">        
+                <label for="company" class="form-label">Company</label>
+                <input type="text" name="company" id="company" class="form-control">
+            </div>
 
-            <label for="firstName">First Name</label>
-            <input type="text" name="firstName" id="firstName">
+            <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" name="firstName" id="firstName" class="form-control">
+            </div>
 
-            <label for="lastName">Last Name</label>
-            <input type="text" name="lastName" id="lastName">
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" name="lastName" id="lastName" class="form-control">
+            </div>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control">
+            </div>
+            
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control">
+            </div>
 
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-
-            <input type="submit" value="sign up">
+            <div class="d-grid justify-content-md-end">
+                <button type="submit" class="btn btn-primary">Sign up</button>
+            </div>
         </form>
     </section>
 </main>
