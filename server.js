@@ -29,6 +29,9 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true })); 
 app.use(express.json());
 
+//Flash setup
+// app.use(flash())
+
 //Setup Routes
 app.use("/", mainRoutes)
 
