@@ -11,6 +11,7 @@ const connectDB=require("./config/database")
 const mainRoutes=require("./routes/main")
 const issuesRoutes=require("./routes/issues")
 const notesRoutes=require("./routes/notes")
+const taxisRoutes=require("./routes/taxis")
 const moment=require("moment")
 
 
@@ -63,6 +64,7 @@ app.use(flash())
 app.use("/", mainRoutes)
 app.use("/issues",issuesRoutes)
 app.use("/notes",notesRoutes)
+app.use("/taxis",taxisRoutes)
 
 //Server Running
 app.listen(process.env.PORT, () => {
