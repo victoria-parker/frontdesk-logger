@@ -47,28 +47,30 @@
                 </tbody>
                 </table>
 
-                <!-- miscellaneous -->
+                <!-- notes -->
                 <table class="table table-hover table-bordered caption-top">
-                    <caption>Miscellaneous</caption>
+                    <caption>Notes</caption>
                     <thead>
                         <tr>
-                            <th scope="col">notes</th>
+                            <th scope="col">note</th>
                             <th scope="col">date</th>
                             <th scope="col">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMiscellaneous">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addnote">
                                     add
                                 </button>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>no note just test</td>
-                            <td>04/01/2023</td>
-                            <td>
-                                <a href="/removeMiscellaneous" class="text-decoration-none link-danger">remove</a> - <a href="/modifyMiscellaneous" class="text-decoration-none link-warning">modify</a> - <a href="/miscellaneous/id" class="text-decoration-none link-info">see more</a>
-                            </td>
-                        </tr>
+                        <% for(let i=0; i < notes.length; i++){ %>
+                            <tr>
+                                <td><%= notes[i].text %></td>
+                                <td><%= moment(notes[i].createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
+                                <td>
+                                    <a href="/removeNote" class="text-decoration-none link-danger">remove</a> - <a href="/modifyNote" class="text-decoration-none link-warning">modify</a> - <a href="/note/id" class="text-decoration-none link-info">see more</a>
+                                </td>
+                            </tr>
+                        <% } %>
                     </tbody>
                 </table> 
             </div>
@@ -91,15 +93,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>000</td>
-                            <td>08:00am</td>
-                            <td>Mrs. Parker</td>
-                            <td>may need to call more than once</td>
-                            <td>
-                                <a href="/removeWakeUpCall" class="text-decoration-none link-danger">remove</a> - <a href="/modifyWakeUpCall" class="text-decoration-none link-warning">modify</a> - <a href="wakeupcall/<%= wakeupcalls[i].id %>" class="text-decoration-none link-info">see more</a>
-                            </td>
-                        </tr>
+                        <% for(let i=0; i < wakeUpCalls.length; i++){ %>
+                            <tr>
+                                <td><%= wakeUpCalls[i].roomNumber %></td>
+                                <td><%= moment(wakeUpCalls[i].wakeUpTime).format('MMMM Do YYYY, h:mm:ss a') %></td>
+                                <td><%= wakeUpCalls[i].guestName %></td>
+                                <td><%= wakeUpCalls[i].observations %></td>
+                                <td>
+                                    <a href="/removeWakeUpCall" class="text-decoration-none link-danger">remove</a> - <a href="/modifyWakeUpCall" class="text-decoration-none link-warning">modify</a> - <a href="wakeupcall/<%= wakeupcalls[i].id %>" class="text-decoration-none link-info">see more</a>
+                                </td>
+                            </tr>
+                        <% } %>
                     </tbody>
                 </table>
                             
@@ -120,15 +124,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% for(let i=0; i < taxis.length; i++){ %>
                         <tr>
-                            <td>000</td>
-                            <td>08:00am 05/01/2023</td>
-                            <td>1abc23</td>
-                            <td>no observation just test</td>
+                            <td><%= taxis[i].roomNumber %></td>
+                            <td><%= moment(taxis[i].pickUpTime).format('MMMM Do YYYY, h:mm:ss a') %></td>
+                            <td><%= taxis[i].bookingNumber %></td>
+                            <td><%= taxis[i].observations %></td>
                             <td>
-                                <a href="/removeTaxi" class="text-decoration-none link-danger">remove</a> - <a href="/modifyTaxo" class="text-decoration-none link-warning">modify</a> - <a href="taxi/<%= taxis[i].id %>" class="text-decoration-none link-info">see more</a>
+                                <a href="/removeTaxi" class="text-decoration-none link-danger">remove</a> - <a href="/modifyTaxi" class="text-decoration-none link-warning">modify</a> - <a href="taxi/<%= taxis[i].id %>" class="text-decoration-none link-info">see more</a>
                             </td>
                         </tr>
+                        <% } %>
                     </tbody>
                 </table>
             </div>
@@ -137,11 +143,11 @@
     </section>
 
     <!-- add issue -->        
-<div class="modal fade" id="addIssue" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addIssue" tabindex="-1" aria-labelledby="issueModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Add and Issue</h1>
+          <h1 class="modal-title fs-5" id="issueModalLabel">Add an Issue</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -171,6 +177,30 @@
     </div>
 </div>
 
+<!-- add note -->
+<div class="modal fade" id="addNote" tabindex="-1" aria-labelledby="noteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="noteModalLabel">Add a Note</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form method="post" action="recordings/createNote">
+                <div class="mb-3">
+                  <label for="text" class="col-form-label">Note:</label>
+                  <textarea class="form-control" id="text" name="text"></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+</div>
 
 </main>
 
