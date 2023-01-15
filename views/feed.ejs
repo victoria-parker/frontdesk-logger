@@ -1,6 +1,11 @@
 <%- include('partials/header') -%>
 <main class="p-1">
-
+    <div class="d-flex  justify-content-md-end pt-3">
+            <% if(user.admin){ %>
+                <a href="/settings" class="text-decoration-none pe-3">settings</a>
+                <% } %>
+                <a href="/logout" class="text-decoration-none pe-3">logout</a>
+    </div>
     
     <section class="container-fluid">
         <h2>Hello <%= user.firstName %></h2>
