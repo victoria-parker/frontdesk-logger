@@ -10,6 +10,7 @@ const logger=require("morgan")
 const connectDB=require("./config/database")
 const mainRoutes=require("./routes/main")
 const issuesRoutes=require("./routes/issues")
+const notesRoutes=require("./routes/notes")
 const moment=require("moment")
 
 
@@ -61,6 +62,7 @@ app.use(flash())
 //Setup Routes
 app.use("/", mainRoutes)
 app.use("/issues",issuesRoutes)
+app.use("/notes",notesRoutes)
 
 //Server Running
 app.listen(process.env.PORT, () => {
