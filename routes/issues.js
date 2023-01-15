@@ -3,7 +3,7 @@ const router=express.Router();
 const issuesController=require("../controllers/issues");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-router.post("/createIssue", issuesController.createIssue)
+router.post("/createIssue",ensureAuth,issuesController.createIssue)
 
 
 module.exports=router;
