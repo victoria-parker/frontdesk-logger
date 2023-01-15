@@ -1,9 +1,9 @@
 const express=require("express");
 const router=express.Router();
-const recordingsController=require("../controllers/recordings");
+const issuesController=require("../controllers/issues");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-router.post("/createIssue", recordingsController.createIssue)
+router.post("/createIssue", issuesController.createIssue)
 
 
 module.exports=router;

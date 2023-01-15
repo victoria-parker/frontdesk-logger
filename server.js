@@ -9,7 +9,7 @@ const flash=require("express-flash")
 const logger=require("morgan")
 const connectDB=require("./config/database")
 const mainRoutes=require("./routes/main")
-const recordingsRoutes=require("./routes/recordings")
+const issuesRoutes=require("./routes/issues")
 const moment=require("moment")
 
 
@@ -60,7 +60,7 @@ app.use(flash())
 
 //Setup Routes
 app.use("/", mainRoutes)
-app.use("/recordings",recordingsRoutes)
+app.use("/issues",issuesRoutes)
 
 //Server Running
 app.listen(process.env.PORT, () => {
