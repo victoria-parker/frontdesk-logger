@@ -9,7 +9,7 @@ const NoteSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
     },
-    organization:{
+    company:{
         type:String,
         required:true
     },
