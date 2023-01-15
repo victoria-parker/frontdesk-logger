@@ -2,6 +2,7 @@ const passport = require("passport")
 const validator = require("validator")
 const User = require("../models/User")
 
+//Get Login
 exports.getLogin = (req, res) => {
     if (req.user) {
         return res.redirect("/feed");
@@ -9,6 +10,17 @@ exports.getLogin = (req, res) => {
     res.render("login", {
        title: "Login",
     });
+}
+
+//Get SignUp
+exports.getSignup = (req,res) =>{
+    if(req.user){
+        return res.render("/feed");
+    }
+
+    res.render("signup", {
+        title: "Create Account"
+    })
 }
 
 exports.postLogin = (req,res,next) => {
