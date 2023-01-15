@@ -3,7 +3,16 @@
 <main>
     <section class="container mt-3">
         <h2>Create an account for you and your company</h2>
-        
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <% if (locals.messages.info) { %>
+            <% messages.info.forEach( el => { %>
+                <div class="alert alert-info"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
         <form action="/signup" method="post" class="container">
             
             <div class="mb-3">        
