@@ -1,0 +1,27 @@
+<%- include('partials/header') -%>
+
+<main>
+    <section>
+        <form action="/signup" method="post">
+            
+            <label for="company">Company</label>
+            <input type="text" name="company" id="company">
+
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName">
+
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+
+            <input type="submit" value="sign up">
+        </form>
+    </section>
+</main>
+
+<%- include('partials/footer') -%>
