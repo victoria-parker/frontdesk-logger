@@ -11,6 +11,7 @@ router.get("/",homeController.getIndex)
 router.get("/login",authController.getLogin)
 router.get("/signup",authController.getSignup)
 router.get("/feed",ensureAuth, recordingsController.getFeed)
+router.get("/logout",authController.logout)
 router.post("/login",authController.postLogin)
 router.post("/signup",authController.postSignup)
 
