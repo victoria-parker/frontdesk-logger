@@ -34,4 +34,4 @@ const WakeUpCallSchema = new mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model("WakeUpCall", WakeUpCallSchemaSchema);
+module.exports = mongoose.model("WakeUpCall", WakeUpCallSchema);
