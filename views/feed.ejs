@@ -40,7 +40,7 @@
                         <td><%= issues[i].text %></td>
                         <td><%= moment(issues[i].createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
                         <td>
-                            <a href="/removeIssue" class="text-decoration-none link-danger">remove</a> - <a href="/modifyIssue" class="text-decoration-none link-warning">modify</a> - <a href="issues/<%= issues[i].id %>" class="text-decoration-none link-info">see more</a></td>
+                            <a href="issues/removeIssue" class="text-decoration-none link-danger">remove</a> - <a href="issues/modifyIssue" class="text-decoration-none link-warning">modify</a> - <a href="issues/<%= issues[i].id %>" class="text-decoration-none link-info">see more</a></td>
                         </td>
                     </tr>
                 <% } %>
@@ -55,7 +55,7 @@
                             <th scope="col">note</th>
                             <th scope="col">date</th>
                             <th scope="col">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addnote">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNote">
                                     add
                                 </button>
                             </th>
@@ -67,7 +67,7 @@
                                 <td><%= notes[i].text %></td>
                                 <td><%= moment(notes[i].createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
                                 <td>
-                                    <a href="/removeNote" class="text-decoration-none link-danger">remove</a> - <a href="/modifyNote" class="text-decoration-none link-warning">modify</a> - <a href="/note/id" class="text-decoration-none link-info">see more</a>
+                                    <a href="notes/removeNote" class="text-decoration-none link-danger">remove</a> - <a href="notes/modifyNote" class="text-decoration-none link-warning">modify</a> - <a href="notes/<%= notes[i].id %>" class="text-decoration-none link-info">see more</a>
                                 </td>
                             </tr>
                         <% } %>
