@@ -16,5 +16,22 @@ module.exports={
         }catch(err){
             console.error(err)
         }
+  },
+
+  createIssue: async (req,res)=>{
+        try{
+            Issue.create(
+                {
+                    roomNumber:req.body.roomNumber,
+                    text: req.body.text,
+                    guestName:req.body.guestName,
+                    company:req.user.company,
+                    user:req.user.id
+                })
+            console.log("Post has been added!");
+            res.redirect("/feed");
+        }catch(err){
+            console.error(err)
+        }
   }
 }
