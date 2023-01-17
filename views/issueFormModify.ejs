@@ -4,7 +4,7 @@
     <div class="container">
         <h2>Modify Issue at room <%=issue.roomNumber%></h2>
 
-        <form action="/modifyIssue/<%=issue.id%>" method="post" class="p-3 border rounded bg-light">
+        <form action="<%=issue.id%>" method="post" class="p-3 border rounded bg-light">
             <input type="hidden" name="_method" value="put">
             
             <div class="mb-3">
