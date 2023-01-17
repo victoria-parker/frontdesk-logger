@@ -18,8 +18,8 @@ module.exports={
   },
   getNote: async (req,res)=>{
     try{
-        let note=await Note.findOne({id:req.params.id}).lean()
-        let user=await User.findOne({id: note.user})
+        let note=await Note.findById(req.params.id).lean()
+        let user=await User.findById(note.user)
         if(!note){
             return res.render('error/404')
         }
