@@ -21,8 +21,8 @@ module.exports={
 
   getIssue: async (req,res)=>{
     try{
-        let issue=await Issue.findOne({id:req.params.id}).lean()
-        let user=await User.findOne({id: issue.user})
+        let issue=await Issue.findById(req.params.id).lean()
+        let user=await User.findById(issue.user)
         if(!issue){
             return res.render('error/404')
         }
