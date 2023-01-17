@@ -63,7 +63,7 @@
                     <caption>Notes</caption>
                     <thead>
                         <tr>
-                            <th scope="col">note</th>
+                            <th scope="col">notes</th>
                             <th scope="col">date</th>
                             <th scope="col">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNote">
@@ -130,7 +130,7 @@
                                     <input type="hidden" name="_method" value="put">
                                     <input type="submit" value="remove" class="btn btn-link text-decoration-none link-danger">
                                     </form>
-                                 - <a href="/modifyWakeUpCall" class="text-decoration-none link-warning">modify</a> - <a href="wakeupcalls/<%= wakeUpCalls[i].id %>" class="text-decoration-none link-info">see more</a>
+                                 - <a href="wakeupcalls/modifyWakeUpCall/<%= wakeUpCalls[i].id %>" class="text-decoration-none link-warning">modify</a> - <a href="wakeupcalls/<%= wakeUpCalls[i].id %>" class="text-decoration-none link-info">see more</a>
                                 </td>
                             </tr>
                         <% } %>
