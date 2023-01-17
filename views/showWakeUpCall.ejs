@@ -1,0 +1,33 @@
+<%- include('partials/header') -%>
+
+<main class="container mt-5">
+    <div class="card mt-3">
+        <div class="card-header">
+            <h3>Wake up call for room <%=wakeUpCall.roomNumber%></h3>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Wake up time: <%=moment(wakeUpCall.wakeUpTime).format('MMMM Do YYYY, h:mm:ss a')%></h5>
+            <p class="card-text"><%=wakeUpCall.observations%></p>
+        </div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">logged by <%=user.firstName+" "+user.lastName%></li>
+                <li class="list-group-item">logged on <%=moment(wakeUpCall.createdAt).format('MMMM Do YYYY, h:mm:ss a')%></li>
+                <li class="list-group-item">is it resolved? 
+                    <%if(wakeUpCall.resolved){%>
+                        yes
+                    <%}else{%>
+                        no
+                    <%}%>    
+                </li>
+            </ul>
+    </div>
+    <div class="d-grid justify-content-md-end mt-5">
+        <div>
+            <a href="/feed" class="btn btn-outline-secondary pe-2">back to feed</a>
+            <a href="/wakeUpCalls/modifyWakeUpCall/<%=wakeUpCall._id%>" class="btn btn-outline-warning">modify</a>
+            <a href="/wakeUpCalls/removeWakeUpCall/<%=wakeUpCall._id%>" class="btn btn-outline-danger pe-2">remove</a>
+        </div>
+    </div>
+</main>
+<%- include('partials/footer') -%>
