@@ -40,7 +40,7 @@
                         <td><%= issues[i].text %></td>
                         <td><%= moment(issues[i].createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
                         <td>
-                            <a href="issues/removeIssue" class="text-decoration-none link-danger">remove</a> - <a href="issues/modifyIssue" class="text-decoration-none link-warning">modify</a> - <a href="issues/<%= issues[i].id %>" class="text-decoration-none link-info">see more</a></td>
+                            <a href="issues/removeIssue" class="text-decoration-none link-danger">remove</a> - <a href="issues/modifyIssue/<%=issues[i].id%>" class="text-decoration-none link-warning">modify</a> - <a href="issues/<%= issues[i].id %>" class="text-decoration-none link-info">see more</a></td>
                         </td>
                     </tr>
                 <% } %>
