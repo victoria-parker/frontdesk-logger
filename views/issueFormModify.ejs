@@ -1,4 +1,38 @@
 <%- include('partials/header') -%>
-<h2>you arrived safely</h2>
-<h3>and the issue at <%=issue.roomNumber%> as well.</h3>
+
+<main class="vertical-center">
+    <div class="container">
+        <h2>Modify Issue at room <%=issue.roomNumber%></h2>
+
+        <form action="/modifyIssue/<%=issue.id%>" method="post" class="p-3 border rounded bg-light">
+            <input type="hidden" name="_method" value="put">
+            
+            <div class="mb-3">
+                <label for="roomNumber" class="col-form-label">Room number:</label>
+                <input type="number" class="form-control" id="roomNumber" name="roomNumber" value="<%=issue.roomNumber%>">
+            </div>
+
+            <div class="mb-3">
+                <label for="guestName" class="col-form-label">Guest Name:</label>
+                <input type="text" class="form-control" id="guestName" name="guestName" value="<%=issue.guestName%>">
+            </div>
+
+            <div class="mb-3">
+                <label for="text" class="col-form-label">Issue:</label>
+                <textarea class="form-control" id="text" name="text"><%=issue.text%></textarea>
+            </div>
+
+            <div class="d-grid justify-content-md-end">
+                <div>
+                    <a href="/feed" class="btn btn-secondary pe-2">Close</a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</main>
+
+
+
 <%- include('partials/footer') -%>
