@@ -1,4 +1,5 @@
 const Issue=require("../models/Issue")
+const User=require("../models/User")
 
 module.exports={
   createIssue: async (req,res)=>{
@@ -21,7 +22,7 @@ module.exports={
   getIssue: async (req,res)=>{
     try{
         let issue=await Issue.findOne({id:req.params.id}).lean()
-        
+        let user=await User.findOne({id: issue.user})
         if(!issue){
             return res.render('error/404')
         }
@@ -32,8 +33,8 @@ module.exports={
             }else{
                 res.render('issueFormModify',{issue})
             }
-        }else if(req.path == '/showIssue/'+req.params.id){
-            res.render('showIssue',{issue})
+        }else if(req.path == '/'+req.params.id){
+            res.render('showIssue',{issue, user})
         
         }else{
             res.render('404')

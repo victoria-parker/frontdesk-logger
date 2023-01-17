@@ -1,0 +1,33 @@
+<%- include('partials/header') -%>
+
+<main class="container mt-5">
+    <div class="card mt-3">
+        <div class="card-header">
+            <h3>Issue at room <%=issue.roomNumber%></h3>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Guest name: <%=issue.guestName%></h5>
+            <p class="card-text"><%=issue.text%></p>
+        </div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">logged by <%=user.firstName+" "+user.lastName%></li>
+                <li class="list-group-item">logged on <%=moment(issue.createdAt).format('MMMM Do YYYY, h:mm:ss a')%></li>
+                <li class="list-group-item">is it resolved? 
+                    <%if(issue.resolved){%>
+                        yes
+                    <%}else{%>
+                        no
+                    <%}%>    
+                </li>
+            </ul>
+    </div>
+    <div class="d-grid justify-content-md-end mt-5">
+        <div>
+            <a href="/feed" class="btn btn-outline-secondary pe-2">back to feed</a>
+            <a href="/issues/modifyIssue/<%=issue._id%>" class="btn btn-outline-warning">modify</a>
+            <a href="/issues/removeIssue/<%=issue._id%>" class="btn btn-outline-danger pe-2">remove</a>
+        </div>
+    </div>
+</main>
+<%- include('partials/footer') -%>
