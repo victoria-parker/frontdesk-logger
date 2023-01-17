@@ -29,8 +29,13 @@ module.exports={
         if(issue.user != req.user.id){
             res.redirect('feed')
         }
+
         if(req.path == '/modifyIssue/'+req.params.id){
             res.render('issueFormModify',{issue})
+        
+        }else if(req.path == '/showIssue/'+req.params.id){
+            res.render('showIssue',{issue})
+        
         }else{
             res.render('404')
         }
