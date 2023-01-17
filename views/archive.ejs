@@ -1,0 +1,120 @@
+<%- include('partials/header') -%>
+
+<main class="p-1">
+
+    <!-- navbar -->
+    <nav class="d-flex justify-content-md-end pt-3 ">
+            <% if(user.admin){ %>
+                <a href="/settings" class="text-decoration-none pe-3">settings</a>
+                <% } %>
+                <a href="/feed" class="text-decoration-none pe-3">Feed</a>
+                <a href="/logout" class="text-decoration-none pe-3">logout</a>
+    </nav>
+
+    <section class="container-fluid w-75">
+
+        <div class="row">
+        
+            <div class="table-responsive">
+
+            <!-- issues -->
+                <table class="table table-hover table-bordered caption-top">
+                    <caption>Issues</caption>
+                <thead>
+                <tr>
+                    <th scope="col">room number</th>
+                    <th scope="col">issue</th>
+                    <th scope="col">date</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <% for(let i=0; i < issues.length; i++){ %>
+                <tr>
+                    <td><%= issues[i].roomNumber %></td>
+                    <td><%= issues[i].text %></td>
+                    <td><%= moment(issues[i].createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
+                </tr>
+
+            <% } %>
+            </tbody>
+            </table>
+
+            <!-- notes -->
+            <table class="table table-hover table-bordered caption-top">
+                <caption>Notes</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">notes</th>
+                        <th scope="col">date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i=0; i < notes.length; i++){ %>
+                        <tr>
+                            <td><%= notes[i].text %></td>
+                            <td><%= moment(notes[i].createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table> 
+        
+        </div>
+
+        <div class="table-responsive">
+
+            <!-- wakeup calls -->
+            <table class="table table-hover table-bordered caption-top">
+                <caption>Wake up calls</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">room number</th>
+                        <th scope="col">wakeup time</th>
+                        <th scope="col">guest name</th>
+                        <th scope="col">notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i=0; i < wakeUpCalls.length; i++){ %>
+                        <tr>
+                            <td><%= wakeUpCalls[i].roomNumber %></td>
+                            <td><%= moment(wakeUpCalls[i].wakeUpTime).format('MMMM Do YYYY, h:mm:ss a') %></td>
+                            <td><%= wakeUpCalls[i].guestName %></td>
+                            <td><%= wakeUpCalls[i].observations %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+                        
+            <!-- taxis -->
+            <table class="table table-hover table-bordered caption-top">
+                <caption>Taxis</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">room number</th>
+                        <th scope="col">pickup time</th>
+                        <th scope="col">booking number</th>
+                        <th scope="col">notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i=0; i < taxis.length; i++){ %>
+                    <tr>
+                        <td><%= taxis[i].roomNumber %></td>
+                        <td><%= moment(taxis[i].pickUpTime).format('MMMM Do YYYY, h:mm:ss a') %></td>
+                        <td><%= taxis[i].bookingNumber %></td>
+                        <td><%= taxis[i].observations %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        
+        </div>
+    
+    </div>
+</section>
+
+</main>
+
+<%- include('partials/footer') -%>
+
