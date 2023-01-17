@@ -44,4 +44,33 @@ module.exports={
         console.error(err)
     }
   },
+  modifyTaxi: async (req,res)=>{
+    try{
+        let taxi=await Taxi.findById(req.params.id).lean()
+        
+        if(!taxi){
+            return res.render('404')
+        }
+        
+        if(taxi.user != req.user.id){
+            return res.redirect('/feed')
+        }else{
+            taxi=await Taxi.findOneAndUpdate({id:req.params.id},req.body,{new:true, runValidators:true})
+            res.redirect('/feed')
+        }
+
+    }catch(err){
+        console.error(err)
+    }
+  },
+  removeTaxi: async(req,res)=>{
+
+    try{
+        await Taxi.findOneAndUpdate({_id:req.params.id},{$set: {resolved: true}})
+        res.redirect('/feed')
+    }catch(err){
+        console.error(err)
+    }
+  
+  }
 }
