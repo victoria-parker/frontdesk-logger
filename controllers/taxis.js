@@ -21,8 +21,8 @@ module.exports={
   },
   getTaxi: async (req,res)=>{
     try{
-        let taxi=await Taxi.findOne({id:req.params.id}).lean()
-        let user=await User.findOne({id: taxi.user})
+        let taxi=await Taxi.findById(req.params.id).lean()
+        let user=await User.findById(taxi.user)
         if(!taxi){
             return res.render('error/404')
         }
