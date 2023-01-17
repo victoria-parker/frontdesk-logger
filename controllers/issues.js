@@ -62,5 +62,15 @@ module.exports={
     }catch(err){
         console.error(err)
     }
+  },
+  removeIssue: async(req,res)=>{
+
+    try{
+        await Issue.findOneAndUpdate({_id:req.params.id},{$set: {resolved: true}})
+        res.redirect('/feed')
+    }catch(err){
+        console.error(err)
+    }
+  
   }
 }

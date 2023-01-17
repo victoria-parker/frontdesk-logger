@@ -41,10 +41,11 @@
                         <td><%= moment(issues[i].createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
                         <td>
                             <form 
-                                action="issues/removeIssue/<%=issues[i].id%>" 
+                                action="issues/<%=issues[i].id%>" 
                                 method="post"
                                 class="removeForm"
                             >
+                                <input type="hidden" name="_method" value="put">
                                 <input type="submit" value="remove" class="btn btn-link text-decoration-none link-danger">
                             </form> - 
                             <a href="issues/modifyIssue/<%=issues[i].id%>" class="text-decoration-none link-warning">modify</a> - 

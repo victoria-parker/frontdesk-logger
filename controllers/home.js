@@ -10,10 +10,10 @@ module.exports = {
     
     getFeed: async (req, res) => {
       try{
-          const issues=await Issue.find({company:req.user.company})
-          const notes=await Note.find({company:req.user.company})
-          const taxis=await Taxi.find({company:req.user.company})
-          const wakeUpCalls=await WakeUpCall.find({company: req.user.company})
+          const issues=await Issue.find({company:req.user.company, resolved:false})
+          const notes=await Note.find({company:req.user.company, resolved:false})
+          const taxis=await Taxi.find({company:req.user.company, resolved:false})
+          const wakeUpCalls=await WakeUpCall.find({company: req.user.company, resolved:false})
           
           res.render("feed.ejs",{issues:issues,notes:notes,taxis:taxis,wakeUpCalls:wakeUpCalls, user:req.user});
           
