@@ -40,5 +40,24 @@ module.exports={
     }catch(err){
         console.error(err)
     }
+  },
+  modifyNote: async (req,res)=>{
+    try{
+        let note=await Note.findById(req.params.id).lean()
+        
+        if(!note){
+            return res.render('404')
+        }
+        
+        if(note.user != req.user.id){
+            return res.redirect('/feed')
+        }else{
+            note=await Note.findOneAndUpdate({id:req.params.id},req.body,{new:true, runValidators:true})
+            res.redirect('/feed')
+        }
+
+    }catch(err){
+        console.error(err)
+    }
   }
 }
