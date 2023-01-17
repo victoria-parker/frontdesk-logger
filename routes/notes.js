@@ -7,6 +7,6 @@ router.post("/createNote",ensureAuth,notesController.createNote)
 router.get("/modifyNote/:id",ensureAuth,notesController.getNote)
 router.put("/modifyNote/:id",ensureAuth,notesController.modifyNote)
 router.get("/:id",ensureAuth,notesController.getNote)
-
+router.put("/:id",ensureAuth,notesController.removeNote)
 
 module.exports=router;

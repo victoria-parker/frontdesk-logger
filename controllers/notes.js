@@ -59,5 +59,15 @@ module.exports={
     }catch(err){
         console.error(err)
     }
+  },
+  removeNote: async(req,res)=>{
+
+    try{
+        await Note.findOneAndUpdate({_id:req.params.id},{$set: {resolved: true}})
+        res.redirect('/feed')
+    }catch(err){
+        console.error(err)
+    }
+  
   }
 }
