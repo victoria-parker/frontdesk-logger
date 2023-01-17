@@ -17,6 +17,7 @@
         <div class="row">
         
             <div class="col-lg-6 col-xl-7 col-xxl-8 table-responsive">
+
                 <!-- issues -->
                 <table class="table table-hover table-bordered caption-top">
                     <caption>Issues</caption>
@@ -86,15 +87,17 @@
                                         <input type="submit" value="remove" class="btn btn-link text-decoration-none link-danger">
                                     </form>
                                     
-                                    - <a href="notes/modifyNote" class="text-decoration-none link-warning">modify</a> - <a href="notes/<%= notes[i].id %>" class="text-decoration-none link-info">see more</a>
+                                    - <a href="notes/modifyNote/<%= notes[i].id %>" class="text-decoration-none link-warning">modify</a> - <a href="notes/<%= notes[i].id %>" class="text-decoration-none link-info">see more</a>
                                 </td>
                             </tr>
                         <% } %>
                     </tbody>
                 </table> 
+            
             </div>
 
             <div class="col-lg-6 col-xl-5 col-xxl-4 table-responsive">
+
                 <!-- wakeup calls -->
                 <table class="table table-hover table-bordered caption-top">
                     <caption>Wake up calls</caption>
@@ -172,6 +175,7 @@
                         <% } %>
                     </tbody>
                 </table>
+            
             </div>
         
         </div>

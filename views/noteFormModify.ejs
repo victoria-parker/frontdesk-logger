@@ -1,0 +1,28 @@
+<%- include('partials/header') -%>
+
+<main class="vertical-center">
+    <div class="container">
+        <h2>Modify Note</h2>
+
+        <form action="<%=note.id%>" method="post" class="p-3 border rounded bg-light">
+            <input type="hidden" name="_method" value="put">
+            
+            <div class="mb-3">
+                <label for="text" class="col-form-label">Note:</label>
+                <textarea class="form-control" id="text" name="text"><%=note.text%></textarea>
+            </div>
+
+            <div class="d-grid justify-content-md-end">
+                <div>
+                    <a href="/feed" class="btn btn-secondary pe-2">back to the feed</a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</main>
+
+
+
+<%- include('partials/footer') -%>
