@@ -1,4 +1,5 @@
 const Taxi=require("../models/Taxi")
+const User=require("../models/User")
 
 module.exports={
   createTaxi: async (req,res)=>{
@@ -17,5 +18,30 @@ module.exports={
         }catch(err){
             console.error(err)
         }
-  }
+  },
+  getTaxi: async (req,res)=>{
+    try{
+        let taxi=await Taxi.findOne({id:req.params.id}).lean()
+        let user=await User.findOne({id: taxi.user})
+        if(!taxi){
+            return res.render('error/404')
+        }
+
+        if(req.path == '/modifyTaxi/'+req.params.id){
+            if(taxi.user != req.user.id){
+                res.redirect('feed')
+            }else{
+                res.render('taxiFormModify',{taxi})
+            }
+        }else if(req.path == '/'+req.params.id){
+            res.render('showTaxi',{taxi, user})
+        
+        }else{
+            res.render('404')
+        }
+        
+    }catch(err){
+        console.error(err)
+    }
+  },
 }
