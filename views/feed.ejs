@@ -77,7 +77,16 @@
                                 <td><%= notes[i].text %></td>
                                 <td><%= moment(notes[i].createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
                                 <td>
-                                    <a href="notes/removeNote" class="text-decoration-none link-danger">remove</a> - <a href="notes/modifyNote" class="text-decoration-none link-warning">modify</a> - <a href="notes/<%= notes[i].id %>" class="text-decoration-none link-info">see more</a>
+                                    <form 
+                                        action="notes/<%=notes[i].id%>" 
+                                        method="post"
+                                        class="removeForm"
+                                    >
+                                        <input type="hidden" name="_method" value="put">
+                                        <input type="submit" value="remove" class="btn btn-link text-decoration-none link-danger">
+                                    </form>
+                                    
+                                    - <a href="notes/modifyNote" class="text-decoration-none link-warning">modify</a> - <a href="notes/<%= notes[i].id %>" class="text-decoration-none link-info">see more</a>
                                 </td>
                             </tr>
                         <% } %>
@@ -110,7 +119,15 @@
                                 <td><%= wakeUpCalls[i].guestName %></td>
                                 <td><%= wakeUpCalls[i].observations %></td>
                                 <td>
-                                    <a href="/removeWakeUpCall" class="text-decoration-none link-danger">remove</a> - <a href="/modifyWakeUpCall" class="text-decoration-none link-warning">modify</a> - <a href="wakeupcalls/<%= wakeUpCalls[i].id %>" class="text-decoration-none link-info">see more</a>
+                                    <form 
+                                        action="wakeUpCalls/<%=wakeUpCalls[i].id%>" 
+                                        method="post"
+                                        class="removeForm"
+                                    >
+                                    <input type="hidden" name="_method" value="put">
+                                    <input type="submit" value="remove" class="btn btn-link text-decoration-none link-danger">
+                                    </form>
+                                 - <a href="/modifyWakeUpCall" class="text-decoration-none link-warning">modify</a> - <a href="wakeupcalls/<%= wakeUpCalls[i].id %>" class="text-decoration-none link-info">see more</a>
                                 </td>
                             </tr>
                         <% } %>
@@ -141,7 +158,15 @@
                             <td><%= taxis[i].bookingNumber %></td>
                             <td><%= taxis[i].observations %></td>
                             <td>
-                                <a href="/removeTaxi" class="text-decoration-none link-danger">remove</a> - <a href="/modifyTaxi" class="text-decoration-none link-warning">modify</a> - <a href="taxi/<%= taxis[i].id %>" class="text-decoration-none link-info">see more</a>
+                                <form 
+                                    action="taxis/<%=taxis[i].id%>" 
+                                    method="post"
+                                    class="removeForm"
+                                >
+                                    <input type="hidden" name="_method" value="put">
+                                    <input type="submit" value="remove" class="btn btn-link text-decoration-none link-danger">
+                                </form> 
+                                - <a href="/modifyTaxi" class="text-decoration-none link-warning">modify</a> - <a href="taxi/<%= taxis[i].id %>" class="text-decoration-none link-info">see more</a>
                             </td>
                         </tr>
                         <% } %>
