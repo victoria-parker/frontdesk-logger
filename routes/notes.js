@@ -6,6 +6,7 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 router.post("/createNote",ensureAuth,notesController.createNote)
 router.get("/modifyNote/:id",ensureAuth,notesController.getNote)
 router.put("/modifyNote/:id",ensureAuth,notesController.modifyNote)
+router.get("/:id",ensureAuth,notesController.getNote)
 
 
 module.exports=router;

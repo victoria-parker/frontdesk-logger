@@ -1,0 +1,39 @@
+<%- include('partials/header') -%>
+
+<main class="container mt-5">
+    <div class="card mt-3">
+        <div class="card-header">
+            <h3>Note</h3>
+        </div>
+        <div class="card-body">
+            <p class="card-text"><%=note.text%></p>
+        </div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">logged by <%=user.firstName+" "+user.lastName%></li>
+                <li class="list-group-item">logged on <%=moment(note.createdAt).format('MMMM Do YYYY, h:mm:ss a')%></li>
+                <li class="list-group-item">is it resolved? 
+                    <%if(note.resolved){%>
+                        yes
+                    <%}else{%>
+                        no
+                    <%}%>    
+                </li>
+            </ul>
+    </div>
+    <div class="d-grid justify-content-md-end mt-5">
+        <div>
+            <a href="/feed" class="d-inline-block btn btn-outline-secondary pe-2">back to feed</a>
+            <a href="/notes/modifyNote/<%=note._id%>" class="d-inline-block btn btn-outline-warning pe-2">modify</a>
+            <form 
+                action="notes/<%=note._id%>" 
+                method="post"
+                class="removeForm d-inline-block"
+            >
+                <input type="hidden" name="_method" value="put">
+                <input type="submit" value="remove" class=" btn btn-outline-danger">
+            </form>
+        </div>
+    </div>
+</main>
+<%- include('partials/footer') -%>
