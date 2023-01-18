@@ -120,3 +120,21 @@ try{
     return res.render('500')
 }
 }
+
+exports.removeUser= async (req,res)=>{
+    try{
+        let user=await User.findById(req.params.id).lean()
+        
+        if(!user){
+            return res.render('404')
+        }
+        
+        user=await User.findByIdAndUpdate(req.params.id,{active:false},{new:true, runValidators:true})
+        res.redirect('/settings')
+        
+    
+    }catch(err){
+        console.error(err)
+        return res.render('500')
+    }
+    }

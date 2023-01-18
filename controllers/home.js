@@ -37,7 +37,7 @@ module.exports = {
   },
   getSettings: async (req, res) => {
     try{
-        const users=await User.find({company:req.user.company})
+        const users=await User.find({company:req.user.company, active:true})
         res.render("settings.ejs",{ users:users, user:req.user});
         
     }catch(err){
