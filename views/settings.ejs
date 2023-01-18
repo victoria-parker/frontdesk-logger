@@ -46,15 +46,16 @@
                     <td><% if(users[i].admin){%> Yes <% }else{%> No <% } %></td>
                     <td>
                         <form 
-                            action="users/deleteUser/<%=users[i].id%>" 
+                            action="users/removeUser/<%=users[i].id%>" 
                             method="post"
                             class="removeForm"
                         >
                             <input type="hidden" name="_method" value="put">
                             <input type="submit" value="remove" class="btn btn-link text-decoration-none link-danger">
                         </form> - 
-                        <a href="users/modifyUser/<%=users[i].id%>" class="text-decoration-none link-warning">modify</a> - 
-                        <a href="users/<%= users[i].id %>" class="text-decoration-none link-info">see more</a></td>
+                        <a href="users/modifyUser/<%= users[i].id %>" class="text-decoration-none link-warning">modify</a>   
+                        - 
+                        <a href="users/<%= users[i].id %>" class="text-decoration-none link-info">see more</a>
                     </td>
                 </tr>
 
@@ -64,6 +65,7 @@
         </div>
     </section>
 
+    <!-- modal for add user -->
     <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -122,6 +124,7 @@
           </div>
         </div>
     </div>
+
 </main>
 
 <%- include('partials/footer') -%>
