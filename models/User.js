@@ -16,6 +16,10 @@ const UserSchema= new mongoose.Schema(
         admin: { 
             type: Boolean,
         },
+        active: { 
+          type: Boolean,
+          default:true
+      },
         company: { 
             type: String 
         },

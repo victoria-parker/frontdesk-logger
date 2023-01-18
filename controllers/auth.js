@@ -35,13 +35,21 @@ exports.postLogin = (req,res,next) => {
 
     //all ok login
     passport.authenticate("local", (err, user, info) => {
+      console.log(user)
       if (err) {
         return next(err);
       }
+
       if (!user) {
         req.flash("errors", info);
         return res.redirect("/login");
       }
+
+      if (!user.active) {
+        req.flash("errors", info);
+        return res.redirect("/login");
+      }
+
       req.logIn(user, (err) => {
         if (err) {
           return next(err);
