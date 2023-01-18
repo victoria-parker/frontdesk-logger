@@ -2,6 +2,7 @@ const Issue=require("../models/Issue")
 const Note=require("../models/Note")
 const Taxi=require("../models/Taxi")
 const WakeUpCall=require("../models/WakeUpCall")
+const User=require('../models/User')
 
 module.exports = {
     getIndex: (req, res) => {
@@ -29,6 +30,15 @@ module.exports = {
         const wakeUpCalls=await WakeUpCall.find({company: req.user.company, resolved:true})
         
         res.render("archive.ejs",{issues:issues,notes:notes,taxis:taxis,wakeUpCalls:wakeUpCalls, user:req.user});
+        
+    }catch(err){
+        console.error(err)
+    }
+  },
+  getSettings: async (req, res) => {
+    try{
+        const users=await User.find({company:req.user.company})
+        res.render("settings.ejs",{ users:users, user:req.user});
         
     }catch(err){
         console.error(err)
