@@ -21,7 +21,7 @@ const moment=require("moment")
 require("dotenv").config({path: "./config/config.env"})
 
 //mongoose settings
-mongoose.set('strictQuery', true);
+mongoose.set('strictQuery', false);
 
 // Passport config
 require("./config/passport")(passport);
