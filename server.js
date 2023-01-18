@@ -6,7 +6,6 @@ const session=require("express-session")
 const MongoStore = require("connect-mongo")(session);
 const methodOverride=require("method-override")
 const flash=require("express-flash")
-const logger=require("morgan")
 const connectDB=require("./config/database")
 const mainRoutes=require("./routes/main")
 const issuesRoutes=require("./routes/issues")
@@ -51,8 +50,6 @@ app.use(methodOverride(function (req,res){
   }
 }))
 
-//Logging
-app.use(logger("dev")); //to start morgan
 
 //Sessions setup
 app.use(
@@ -81,5 +78,5 @@ app.use("/users",usersRoutes)
 
 //Server Running
 app.listen(process.env.PORT, () => {
-    console.log(console.log(`Server running in ${process.env.NODE_ENV} mode`));
+    console.log(console.log(`Server is running!`));
 });
