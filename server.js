@@ -13,6 +13,7 @@ const issuesRoutes=require("./routes/issues")
 const notesRoutes=require("./routes/notes")
 const taxisRoutes=require("./routes/taxis")
 const wakeUpCallsRoutes=require("./routes/wakeUpCalls")
+const usersRoutes=require("./routes/users")
 const moment=require("moment")
 
 
@@ -76,6 +77,7 @@ app.use("/issues",issuesRoutes)
 app.use("/notes",notesRoutes)
 app.use("/taxis",taxisRoutes)
 app.use("/wakeUpCalls",wakeUpCallsRoutes)
+app.use("/users",usersRoutes)
 
 //Server Running
 app.listen(process.env.PORT, () => {
