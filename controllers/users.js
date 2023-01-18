@@ -11,7 +11,7 @@ exports.createUser= (req,res,next) => {
     if(!validator.isEmail(req.body.email)){
         validationErrors.push({ msg: "Please enter a valid email address." })
     }
-  
+
     if(!validator.isLength(req.body.password, { min:8 })){
         validationErrors.push({msg:"Password must be at least 8 characters long"})
     }
@@ -68,7 +68,7 @@ exports.createUser= (req,res,next) => {
 }
   
 exports.removeUser= async(req,res)=>{
-
+    
     try{
         await User.findOneAndUpdate({_id:req.params.id},{$set: {active: false}})
         res.redirect('/settings')
@@ -104,13 +104,53 @@ exports.getUser= async (req,res)=>{
 }
 
 exports.modifyUser= async (req,res)=>{
-try{
+
+    //validations
+    const validationErrors=[]
+    
+    if(!validator.isEmail(req.body.email)){
+        validationErrors.push({ msg: "Please enter a valid email address." })
+    }
+  
+    if(!validator.isLength(req.body.password, { min:8 })){
+        validationErrors.push({msg:"Password must be at least 8 characters long"})
+    }
+  
+    if(req.body.password !== req.body.confirmPassword){
+        validationErrors.push({msg:"Passwords do not match"})
+    }
+  
+    if(validationErrors.length){
+        req.flash("errors",validationErrors)
+        return res.redirect("/users/modifyUser/"+req.params.id);
+    }
+  
+    //normalize email
+    req.body.email = validator.normalizeEmail(req.body.email, {
+        gmail_remove_dots: false
+    });
+
+    try{
+
     let user=await User.findById(req.params.id).lean()
     
     if(!user){
         return res.render('404')
     }
-    
+
+    //check email doesn't repeat
+    if(req.body.email != user.email){
+        let repetition=await User.find({email:req.body.email})
+
+        if(repetition){
+            req.flash("errors", {
+                msg: "Account with that email address already exists.",
+                });
+                return res.redirect("/users/modifyUser/"+req.params.id);
+        }
+    }
+
+    //modify the user
     user=await User.findByIdAndUpdate(req.params.id,req.body,{new:true, runValidators:true})
     res.redirect('/settings')
     
