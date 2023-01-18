@@ -14,7 +14,7 @@ exports.getLogin = (req, res) => {
 
 //Post Login
 exports.postLogin = (req,res,next) => {
-    console.log(req)
+    
     const validationErrors = [];
     
     //check email
@@ -35,7 +35,7 @@ exports.postLogin = (req,res,next) => {
 
     //all ok login
     passport.authenticate("local", (err, user, info) => {
-      console.log(user)
+      
       if (err) {
         return next(err);
       }

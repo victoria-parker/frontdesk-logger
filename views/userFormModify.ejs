@@ -31,15 +31,6 @@
                 <input type="email" id="email" name="email" class="form-control" value="<%=user.email%>">
             </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" id="password" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" name="confirmPassword" id="confirmPassword" class="form-control">
-            </div>
 
             Admin permits:
             <% if (user.admin) {%>
