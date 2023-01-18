@@ -28,8 +28,8 @@ module.exports = {
         const notes=await Note.find({company:req.user.company, resolved:true})
         const taxis=await Taxi.find({company:req.user.company, resolved:true})
         const wakeUpCalls=await WakeUpCall.find({company: req.user.company, resolved:true})
-        
-        res.render("archive.ejs",{issues:issues,notes:notes,taxis:taxis,wakeUpCalls:wakeUpCalls, user:req.user});
+        const users=await User.find({company:req.user.company})
+        res.render("archive.ejs",{issues:issues,notes:notes,taxis:taxis,wakeUpCalls:wakeUpCalls, user:req.user,users:users});
         
     }catch(err){
         console.error(err)

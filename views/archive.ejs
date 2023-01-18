@@ -25,15 +25,19 @@
                     <th scope="col">room number</th>
                     <th scope="col">issue</th>
                     <th scope="col">date</th>
+                    <th scope="col">logged by</th>
                 </tr>
             </thead>
             <tbody>
 
-            <% for(let i=0; i < issues.length; i++){ %>
+            <% for(let i=0; i < issues.length; i++){ 
+                let loggedBy=users.find((user)=>user.id == issues[i].user)
+                %>
                 <tr>
                     <td><%= issues[i].roomNumber %></td>
                     <td><%= issues[i].text %></td>
                     <td><%= moment(issues[i].createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
+                    <td><%=  loggedBy.firstName+' '+loggedBy.lastName %></td>
                 </tr>
 
             <% } %>
@@ -47,13 +51,17 @@
                     <tr>
                         <th scope="col">notes</th>
                         <th scope="col">date</th>
+                        <th scope="col">logged by</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% for(let i=0; i < notes.length; i++){ %>
+                    <% for(let i=0; i < notes.length; i++){ 
+                        let loggedBy=users.find((user)=>user.id == notes[i].user)
+                        %>
                         <tr>
                             <td><%= notes[i].text %></td>
                             <td><%= moment(notes[i].createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
+                            <td><%=  loggedBy.firstName+' '+loggedBy.lastName %></td>
                         </tr>
                     <% } %>
                 </tbody>
@@ -72,15 +80,19 @@
                         <th scope="col">wakeup time</th>
                         <th scope="col">guest name</th>
                         <th scope="col">notes</th>
+                        <th scope="col">logged by</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% for(let i=0; i < wakeUpCalls.length; i++){ %>
+                    <% for(let i=0; i < wakeUpCalls.length; i++){
+                        let loggedBy=users.find((user)=>user.id == wakeUpCalls[i].user)
+                        %>
                         <tr>
                             <td><%= wakeUpCalls[i].roomNumber %></td>
                             <td><%= moment(wakeUpCalls[i].wakeUpTime).format('MMMM Do YYYY, h:mm:ss a') %></td>
                             <td><%= wakeUpCalls[i].guestName %></td>
                             <td><%= wakeUpCalls[i].observations %></td>
+                            <td><%=  loggedBy.firstName+' '+loggedBy.lastName %></td>
                         </tr>
                     <% } %>
                 </tbody>
@@ -95,15 +107,19 @@
                         <th scope="col">pickup time</th>
                         <th scope="col">booking number</th>
                         <th scope="col">notes</th>
+                        <th scope="col">logged by</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% for(let i=0; i < taxis.length; i++){ %>
+                    <% for(let i=0; i < taxis.length; i++){ 
+                        let loggedBy=users.find((user)=>user.id == taxis[i].user)
+                    %>
                     <tr>
                         <td><%= taxis[i].roomNumber %></td>
                         <td><%= moment(taxis[i].pickUpTime).format('MMMM Do YYYY, h:mm:ss a') %></td>
                         <td><%= taxis[i].bookingNumber %></td>
                         <td><%= taxis[i].observations %></td>
+                        <td><%=  loggedBy.firstName+' '+loggedBy.lastName %></td>
                     </tr>
                     <% } %>
                 </tbody>
