@@ -14,7 +14,7 @@ This app allows the manager of the hotel to create an account for them and their
 
 **Tech used:** Node js, Express, Mongodb, Mongoose, EJS, CSS, Passport, Bootstrap
 
-I built this MVP following the MVC pattern with Nodejs as server environment and Express as framework. For the views I used EJS, I really enjoy using it as it reminds me of PHP. For dealing with the database it uses Mongoose as the DB used is MongoDB. For dealing with authentication it uses Passport. js and for the styling I used mainly Bootstrap.
+I built this MVP following the MVC pattern with Nodejs as server environment and Express as framework. For the views I used EJS, I really enjoy using it. For dealing with the database it uses Mongoose as the DB used is MongoDB. For dealing with authentication it uses Passport. js and for the styling I used mainly Bootstrap.
 
 ## Optimizations
 
